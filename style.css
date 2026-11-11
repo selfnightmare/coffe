@@ -131,6 +131,13 @@ h1 {
     background-color: #563d2c;
 }
 
+.button:focus-visible,
+.menu a:focus-visible,
+.logo:focus-visible {
+    outline: 3px solid #a0522d;
+    outline-offset: 4px;
+}
+
 .hero-picture img {
     width: 100%;
     border-radius: 20px;
@@ -180,7 +187,24 @@ h1 {
     color: #6f4e37;
 }
 
+.contacts-section {
+    background-color: #fff;
+    border-top: 1px solid #e5e7ef;
+}
+
+.footer {
+    padding: 20px 0;
+    color: #61677a;
+    font-size: 14px;
+}
+
 @media (max-width: 900px) {
+    .hero-inner {
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        padding: 32px 0;
+    }
 
     .hero-content,
     .hero-picture {
@@ -197,6 +221,12 @@ h1 {
 @media (max-width: 600px) {
     .container {
         width: calc(100% - 32px);
+    }
+
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
     }
 
     .menu {
