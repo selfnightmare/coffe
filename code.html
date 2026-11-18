@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8f5f0">
-    <meta name="description" content="Chifirok — уютная кофейня с авторским подходом. Выберите любимый кофе без лишней сложности.">
+    <meta name="description"
+        content="Chifirok — уютная кофейня с авторским подходом. Выберите любимый кофе без лишней сложности.">
     <title>Chifirok — кофе с характером</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
+
 <body>
     <header class="site-header">
         <div class="container header-inner">
@@ -21,9 +24,11 @@
                 <a href="#menu">Меню</a>
                 <a href="#picker">Подбор кофе</a>
                 <a href="#about">О нас</a>
+                <a href="#contacts">Контакты</a>
             </nav>
 
-            <a class="header-cta" href="#menu">Выбрать напиток <span aria-hidden="true">↗</span></a>
+            <a class="header-cta" href="#order">Корзина <span class="cart-count" id="cart-count">0</span> <span
+                    aria-hidden="true">↗</span></a>
         </div>
     </header>
 
@@ -37,7 +42,8 @@
                         Хороший кофе не требует сложного выбора. Найди свой вкус — остальное мы сделаем сами.
                     </p>
                     <div class="hero-actions">
-                        <a class="button button-primary" href="#picker">Подобрать кофе <span aria-hidden="true">↓</span></a>
+                        <a class="button button-primary" href="#picker">Подобрать кофе <span
+                                aria-hidden="true">↓</span></a>
                         <a class="text-link" href="#menu">Сразу к меню <span aria-hidden="true">↗</span></a>
                     </div>
                     <div class="hero-note">
@@ -95,7 +101,8 @@
                         <span class="recommendation-label">Твой вариант</span>
                         <p class="recommendation-name" id="recommendation-name"></p>
                         <p class="recommendation-description" id="recommendation-description"></p>
-                        <a class="recommendation-link" id="recommendation-link" href="#menu">Найти в меню <span aria-hidden="true">↓</span></a>
+                        <a class="recommendation-link" id="recommendation-link" href="#menu">Найти в меню <span
+                                aria-hidden="true">↓</span></a>
                     </div>
                 </div>
             </div>
@@ -112,35 +119,70 @@
                 </div>
 
                 <div class="menu-grid">
-                    <article class="drink-card" id="drink-espresso" data-drink-card="espresso">
+                    <article class="drink-card" id="drink-espresso" data-drink-card="espresso" data-price="1100">
                         <span class="drink-index">01 <span aria-hidden="true">/</span> КЛАССИКА</span>
                         <span class="drink-symbol symbol-espresso" aria-hidden="true">●</span>
                         <h3>Эспрессо</h3>
                         <p>Крепкий, насыщенный, ничего лишнего.</p>
-                        <div class="drink-footer"><span>30 мл</span><strong>1 100 ₸</strong></div>
+                        <div class="drink-footer"><span>300 мл</span><strong>1 100 ₸</strong></div>
+                        <button class="add-to-order-button" type="button" data-add-to-order>Добавить в заказ</button>
                     </article>
-                    <article class="drink-card" id="drink-cappuccino" data-drink-card="cappuccino">
+                    <article class="drink-card" id="drink-cappuccino" data-drink-card="cappuccino" data-price="1500">
                         <span class="drink-index">02 <span aria-hidden="true">/</span> БАЛАНС</span>
                         <span class="drink-symbol symbol-cappuccino" aria-hidden="true">◉</span>
                         <h3>Капучино</h3>
                         <p>Эспрессо и нежная молочная пена — всё на своих местах.</p>
                         <div class="drink-footer"><span>250 мл</span><strong>1 500 ₸</strong></div>
+                        <button class="add-to-order-button" type="button" data-add-to-order>Добавить в заказ</button>
                     </article>
-                    <article class="drink-card" id="drink-latte" data-drink-card="latte">
+                    <article class="drink-card" id="drink-latte" data-drink-card="latte" data-price="2200">
                         <span class="drink-index">03 <span aria-hidden="true">/</span> НЕЖНОСТЬ</span>
                         <span class="drink-symbol symbol-latte" aria-hidden="true">◍</span>
                         <h3>Латте</h3>
                         <p>Мягкий эспрессо с большим количеством молока.</p>
                         <div class="drink-footer"><span>300 мл</span><strong>2 200 ₸</strong></div>
+                        <button class="add-to-order-button" type="button" data-add-to-order>Добавить в заказ</button>
                     </article>
-                    <article class="drink-card" id="drink-raf" data-drink-card="raf">
+                    <article class="drink-card" id="drink-raf" data-drink-card="raf" data-price="2800">
                         <span class="drink-index">04 <span aria-hidden="true">/</span> АВТОРСКИЙ</span>
                         <span class="drink-symbol symbol-raf" aria-hidden="true">✳</span>
                         <h3>Раф</h3>
                         <p>Сливочный кофе с ванилью для маленького праздника.</p>
                         <div class="drink-footer"><span>300 мл</span><strong>2 800 ₸</strong></div>
+                        <button class="add-to-order-button" type="button" data-add-to-order>Добавить в заказ</button>
                     </article>
                 </div>
+                <section class="order-panel" id="order" aria-labelledby="order-title">
+                    <div class="order-header">
+                        <div>
+                            <p class="eyebrow">Самовывоз</p>
+                            <h2 id="order-title">Ваш заказ</h2>
+                        </div>
+                        <p class="order-summary" id="order-summary">Корзина пока пуста</p>
+                    </div>
+                    <p class="order-empty" id="order-empty">Добавьте напитки из меню, чтобы оформить заказ.</p>
+                    <ul class="order-items" id="order-items" aria-label="Состав заказа"></ul>
+                    <div class="order-total" id="order-total" hidden>
+                        <span>Итого</span>
+                        <strong id="order-total-price"></strong>
+                    </div>
+                    <form class="checkout-form" id="checkout-form" hidden>
+                        <p>Оставьте контакты для заказа на самовывоз.</p>
+                        <div class="checkout-fields">
+                            <label>
+                                Имя
+                                <input name="customerName" type="text" autocomplete="name" maxlength="80" required>
+                            </label>
+                            <label>
+                                Телефон
+                                <input name="phone" type="tel" autocomplete="tel" required>
+                            </label>
+                        </div>
+                        <button class="button button-primary checkout-button" type="submit">Подтвердить заказ</button>
+                        <p class="order-disclaimer">Демо-режим: заказ не отправляется в кофейню.</p>
+                    </form>
+                    <p class="order-status" id="order-status" role="status" aria-live="polite"></p>
+                </section>
                 <p class="menu-note">Все напитки готовим после заказа — так вкуснее.</p>
             </div>
         </section>
@@ -152,7 +194,60 @@
                     <p class="eyebrow">Наша философия</p>
                     <h2 id="about-title">Кофе — это повод<br>немного замедлиться.</h2>
                 </div>
-                <p class="about-copy">Chifirok — место, где встречают по-доброму, заваривают с душой и помогают найти именно свою чашку.</p>
+                <p class="about-copy">Chifirok — место, где встречают по-доброму, заваривают с душой и помогают найти
+                    именно свою чашку.</p>
+            </div>
+        </section>
+
+        <section class="contact-section section" id="contacts" aria-labelledby="contacts-title">
+            <div class="container contact-layout">
+                <div class="contact-intro">
+                    <p class="eyebrow">Ждём в гости</p>
+                    <h2 id="contacts-title">Как нас найти</h2>
+                    <p>Заглядывайте за любимым кофе — будем рады видеть вас.</p>
+                    <a class="button button-primary route-button"
+                        href="https://2gis.kz/almaty/directions/points/76.94928,43.274483" target="_blank"
+                        rel="noopener noreferrer" aria-label="Построить маршрут до кофейни в 2ГИС">
+                        Построить маршрут <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <span class="contact-label">Адрес</span>
+                        <address>г. Алматы, проспект Суюнбая, 21а</address>
+                    </div>
+                    <div class="contact-details-grid">
+                        <div class="contact-item">
+                            <span class="contact-label">Часы работы</span>
+                            <p>Понедельник — суббота<br>08:00–22:00</p>
+                            <p class="contact-note">Воскресенье — выходной</p>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Телефон</span>
+                            <a class="contact-phone" href="tel:+77777777777">+7 777 777 7777</a>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <span class="contact-label">Мы в соцсетях</span>
+                        <nav class="social-links" aria-label="Социальные сети кофейни">
+                            <a class="social-link" href="https://instagram.com/Chifirok" target="_blank"
+                                rel="noopener noreferrer" aria-label="Instagram Chifirok">
+                                <span class="social-mark" aria-hidden="true">ig</span>
+                                <span>Instagram</span>
+                            </a>
+                            <a class="social-link" href="https://t.me/Chifirok_live" target="_blank"
+                                rel="noopener noreferrer" aria-label="Telegram Chifirok">
+                                <span class="social-mark" aria-hidden="true">tg</span>
+                                <span>Telegram</span>
+                            </a>
+                            <a class="social-link" href="https://www.tiktok.com/@chifirchik" target="_blank"
+                                rel="noopener noreferrer" aria-label="TikTok Chifirok">
+                                <span class="social-mark" aria-hidden="true">♪</span>
+                                <span>TikTok</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -168,4 +263,5 @@
         </div>
     </footer>
 </body>
+
 </html>
